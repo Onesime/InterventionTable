@@ -10,6 +10,7 @@
 						<th>Email</th>
 						<th>Title</th>
 						<th>Place</th>
+            <th>Action</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -17,6 +18,7 @@
 						:row="i"
 						:key="index">
 					</Row>
+          <Create :json="json"></Create>
 				</tbody>
 			</table>
 		</div>
@@ -27,6 +29,7 @@
 
 import json from '../json/MOCK_DATA.json'
 import Row from './Row.vue'
+import Create from './Create.vue'
 
 export default {
   name: 'InterventionTable',
@@ -40,11 +43,12 @@ export default {
 	},
 	computed: {
       paginatedJson: function() {
-          return json.slice(0, 10);
+          return json;
 	  }
 	},
     components: {
-      Row: Row
+      Row: Row,
+      Create: Create
     }
 }
 </script>

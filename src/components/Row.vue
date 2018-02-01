@@ -6,6 +6,7 @@
         <td>{{ row.email}}</td>
         <td>{{ row.title}}</td>
         <td>{{ row.place}}</td>
+        <td></td>
     </tr>
 </template>
 
