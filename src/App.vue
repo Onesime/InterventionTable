@@ -1,21 +1,18 @@
 <template>
   <div id="app">
-    Hello
-    <img src="./assets/logo.png">
-    World
-    <helloworld></helloworld>
+	<interventiontable></interventiontable>
     <router-view/>
   </div>
 </template>
 
 <script>
 
-import HelloWorld from './components/HelloWorld'
+import InterventionTable from './components/InterventionTable'
 
 export default {
   name: 'App',
   components: {
-      helloworld:HelloWorld
+	  interventiontable:InterventionTable
   }
 }
 </script>
