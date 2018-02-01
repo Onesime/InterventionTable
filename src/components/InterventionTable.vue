@@ -13,14 +13,10 @@
 					</tr>
 				</thead>
 				<tbody>
-					<tr v-for="i in paginatedJson">
-						<td>{{ i.id}}</td>
-						<td>{{ i.first_name}}</td>
-						<td>{{ i.last_name}}</td>
-						<td>{{ i.email}}</td>
-						<td>{{ i.title}}</td>
-						<td>{{ i.place}}</td>
-					</tr>
+					<Row v-for="(i, index) in paginatedJson"
+						:row="i"
+						:key="index">
+					</Row>
 				</tbody>
 			</table>
 		</div>
@@ -30,6 +26,7 @@
 <script>
 
 import json from '../json/MOCK_DATA.json'
+import Row from './Row.vue'
 
 export default {
   name: 'InterventionTable',
@@ -45,7 +42,10 @@ export default {
       paginatedJson: function() {
           return json.slice(0, 10);
 	  }
-	}
+	},
+    components: {
+      Row: Row
+    }
 }
 </script>
 
