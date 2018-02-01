@@ -38,6 +38,9 @@ export default {
             json: json
         }
     },
+	props: {
+
+	},
 	computed: {
       paginatedJson: function() {
           return json.slice(0, 10);

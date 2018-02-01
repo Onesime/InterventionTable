@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-	<interventiontable></interventiontable>
+
     <router-view/>
   </div>
 </template>
