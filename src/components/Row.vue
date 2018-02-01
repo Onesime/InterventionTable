@@ -26,7 +26,7 @@
                 :value="row.place"
                 :row="row"
                 :onSubmit="onSubmit"></EditRow>
-        <td></td>
+      <td><input type="button" class="btn btn-default" value="X" v-on:click="suppr(index)"/></td>
     </tr>
 </template>
 
@@ -37,7 +37,10 @@ import EditRow from './EditRow.vue'
 export default {
     name: 'Row',
     props: [
-        'row'
+        'row',
+        'json',
+        'suppr',
+        'index'
     ],
     methods: {
         onSubmit: function(name, value, row) {

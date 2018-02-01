@@ -16,7 +16,10 @@
 				<tbody>
 					<Row v-for="(i, index) in paginatedJson"
 						:row="i"
-						:key="index">
+						:key="index"
+            :json="json"
+            :suppr="suppr"
+            :index="index">
 					</Row>
           			<Create v-if="pageNumber == maxSize" :json="json"></Create>
 				</tbody>
@@ -60,11 +63,14 @@ export default {
         Navigation: Navigation
 	},
 	methods: {
-      pageChanged: function(index) {
-          if (index < 1) this.pageNumber = 1;
-          else if (index > this.maxSize - 1) this.pageNumber = this.maxSize;
-          else this.pageNumber = index;
-	  }
+    pageChanged: function(index) {
+        if (index < 1) this.pageNumber = 1;
+        else if (index > this.maxSize - 1) this.pageNumber = this.maxSize;
+        else this.pageNumber = index;
+	  },
+    suppr: function(index){
+      this.json.splice(index,1)
+    }
 	}
 }
 </script>
