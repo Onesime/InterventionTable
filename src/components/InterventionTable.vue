@@ -8,7 +8,7 @@
 			<table class="table table-bordered table-hover">
 				<thead>
 					<tr>
-<<<<<<< Updated upstream
+						<th><input type="checkbox" id="check" v-on:click="checkAll()"></th>
 						<THOrdering name="ID"
 									field="id"
 									:ordering="ordering"
@@ -34,25 +34,15 @@
 									:ordering="ordering"
 						></THOrdering>
             			<th>Action</th>
-=======
-            <th><input type="checkbox" id="check" v-on:click="checkAll()"></th>
-						<th>ID</th>
-						<th>First name</th>
-						<th>Last name</th>
-						<th>Email</th>
-						<th>Title</th>
-						<th>Place</th>
-            <th>Action</th>
->>>>>>> Stashed changes
 					</tr>
 				</thead>
 				<tbody>
 					<Row v-for="(i, index) in paginatedJson"
 						:row="i"
 						:key="index"
-            :json="json"
-            :suppr="suppr"
-            :index="index">
+						:json="json"
+						:suppr="suppr"
+						:index="index">
 					</Row>
           			<Create v-if="pageNumber == maxSize" :json="json"></Create>
 				</tbody>
@@ -61,6 +51,7 @@
 		<Navigation :maxSize="maxSize"
 					:pageNumber="pageNumber"
 					:pageChanged="pageChanged"></Navigation>
+		<ModalEdit :row="selectedRow"></ModalEdit>
 	</div>
 </template>
 
@@ -70,14 +61,23 @@ import json from '../json/MOCK_DATA.json'
 import Row from './Row.vue'
 import Create from './Create.vue'
 import Navigation from './Navigation.vue'
-<<<<<<< Updated upstream
 import THOrdering from './THOrdering.vue'
-=======
 import Delete from './Delete.vue'
->>>>>>> Stashed changes
+import ModalEdit from './ModalEdit.vue'
 
 export default {
-  name: 'InterventionTable',
+  	name: 'InterventionTable',
+    components: {
+        Row: Row,
+        Create: Create,
+        Navigation: Navigation,
+        THOrdering: THOrdering,
+        ModalEdit: ModalEdit,
+        Delete: Delete
+    },
+    mounted() {
+        this.bindEvents()
+    },
 	data() {
         return {
             json: json,
@@ -85,13 +85,17 @@ export default {
 			ordering: {
                 field: 'id',
 				isDesc: true,
-			}
+			},
+			selectedRow: json[0]
         }
     },
 	props: [
 
-  ],
+  	],
 	computed: {
+        mounted() {
+            this.bindEvents()
+        },
       	sortedJson: function() {
 
 			var me = this;
@@ -106,18 +110,12 @@ export default {
             return this.json.reverse();
 		},
       	paginatedJson: function() {
-<<<<<<< Updated upstream
           	return this.sortedJson.slice((this.pageNumber -1) * 10, (this.pageNumber - 1) * 10 + 10);
 	  	},
-=======
-          	return this.json.slice((this.pageNumber -1) * 10, (this.pageNumber - 1) * 10 + 10);
-	  	  },
->>>>>>> Stashed changes
         maxSize: function() {
             return Math.ceil(this.json.length / 10);
         },
 	},
-<<<<<<< Updated upstream
 	methods: {
 		suppr: function(index){
 		  this.json.splice(index,1)
@@ -132,41 +130,30 @@ export default {
                 this.ordering.field = obj.field;
                 this.ordering.isDesc = obj.isDesc;
             })
+            this.$on('selectedRowChanged', (obj) => {
+                this.selectedRow = Object.assign({}, obj.row);
+            })
+            this.$on('rowChanged', (obj) => {
+                function findRow(row) {
+                    return row.id == obj.row.id;
+                }
+                var index = this.json.findIndex(findRow);
+                this.json[index].first_name = obj.row.first_name;
+                this.json[index].last_name = obj.row.last_name;
+                this.json[index].email = obj.row.email;
+                this.json[index].title = obj.row.title;
+                this.json[index].place = obj.row.place;
+                this.json[index].description = obj.row.description;
+            })
+        },
+        checkAll: function(){
+            var checkbox = Array.prototype.slice.call(document.getElementsByClassName('inputs'));
+            console.log(checkbox);
+            for(var i=0; checkbox[i]; ++i) {
+                document.getElementById('check').checked ? checkbox[i].checked = true : checkbox[i].checked = false;
+            }
         }
 	},
-    components: {
-        Row: Row,
-        Create: Create,
-        Navigation: Navigation,
-        THOrdering: THOrdering
-    },
-	mounted() {
-        this.bindEvents()
-=======
-    components: {
-      	Row: Row,
-      	Create: Create,
-        Navigation: Navigation,
-        Delete: Delete
-	},
-	methods: {
-    pageChanged: function(index) {
-        if (index < 1) this.pageNumber = 1;
-        else if (index > this.maxSize - 1) this.pageNumber = this.maxSize;
-        else this.pageNumber = index;
-	  },
-    suppr: function(index){
-      this.json.splice(index,1)
-    },
-    checkAll: function(){
-      var checkbox = Array.prototype.slice.call(document.getElementsByClassName('inputs'));
-      console.log(checkbox);
-      for(var i=0; checkbox[i]; ++i) {
-        document.getElementById('check').checked ? checkbox[i].checked = true : checkbox[i].checked = false;
-      }
-    }
->>>>>>> Stashed changes
-	}
 }
 </script>
 

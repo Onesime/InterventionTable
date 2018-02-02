@@ -27,7 +27,12 @@
                 :value="row.place"
                 :row="row"
                 :onSubmit="onSubmit"></EditRow>
-      <td><input type="button" class="btn btn-default" value="X" v-on:click="suppr(index)"/></td>
+      <td>
+          <input type="button" class="btn btn-default" value="X" v-on:click="suppr(index)"/>
+          <button v-on:click="selectedRowChanged" type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#myModal">
+              <i class="far fa-edit"></i>
+          </button>
+      </td>
     </tr>
 </template>
 
@@ -46,6 +51,9 @@ export default {
     methods: {
         onSubmit: function(name, value, row) {
             row[name] = value;
+        },
+        selectedRowChanged: function() {
+            this.$parent.$emit('selectedRowChanged', { row: this.row })
         }
     },
     components: {
