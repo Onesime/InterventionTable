@@ -149,7 +149,7 @@ export default {
           	return this.sortedJson.slice((this.pageNumber -1) * 10, (this.pageNumber - 1) * 10 + 10);
 	  	},
         maxSize: function() {
-            return Math.ceil(this.paginatedJson.length / 10);
+            return Math.ceil(this.sortedJson.length / 10);
         },
 	},
 	methods: {

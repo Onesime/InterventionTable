@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div style="float:left">
     <input type="button" class="btn btn-danger" value="Delete" v-on:click="supprCheck()"/>
   </div>
 </template>

@@ -1,6 +1,7 @@
 <template>
   <tr>
     <td></td>
+    <td></td>
     <td><input type="text" placeholder="first_name" v-model="first_name"/></td>
     <td><input type="text" placeholder="last_name" v-model="last_name"/></td>
     <td><input type="text" placeholder="email" v-model="email"/></td>
