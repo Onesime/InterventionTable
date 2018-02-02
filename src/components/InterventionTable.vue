@@ -1,9 +1,14 @@
 <template>
 	<div class="interventiontable">
+    <Delete
+      :json="json"
+      style="text-align: left;">
+    </Delete>
 		<div class="table-responsive">
 			<table class="table table-bordered table-hover">
 				<thead>
 					<tr>
+<<<<<<< Updated upstream
 						<THOrdering name="ID"
 									field="id"
 									:ordering="ordering"
@@ -29,6 +34,16 @@
 									:ordering="ordering"
 						></THOrdering>
             			<th>Action</th>
+=======
+            <th><input type="checkbox" id="check" v-on:click="checkAll()"></th>
+						<th>ID</th>
+						<th>First name</th>
+						<th>Last name</th>
+						<th>Email</th>
+						<th>Title</th>
+						<th>Place</th>
+            <th>Action</th>
+>>>>>>> Stashed changes
 					</tr>
 				</thead>
 				<tbody>
@@ -55,7 +70,11 @@ import json from '../json/MOCK_DATA.json'
 import Row from './Row.vue'
 import Create from './Create.vue'
 import Navigation from './Navigation.vue'
+<<<<<<< Updated upstream
 import THOrdering from './THOrdering.vue'
+=======
+import Delete from './Delete.vue'
+>>>>>>> Stashed changes
 
 export default {
   name: 'InterventionTable',
@@ -69,9 +88,9 @@ export default {
 			}
         }
     },
-	props: {
+	props: [
 
-	},
+  ],
 	computed: {
       	sortedJson: function() {
 
@@ -87,12 +106,18 @@ export default {
             return this.json.reverse();
 		},
       	paginatedJson: function() {
+<<<<<<< Updated upstream
           	return this.sortedJson.slice((this.pageNumber -1) * 10, (this.pageNumber - 1) * 10 + 10);
 	  	},
+=======
+          	return this.json.slice((this.pageNumber -1) * 10, (this.pageNumber - 1) * 10 + 10);
+	  	  },
+>>>>>>> Stashed changes
         maxSize: function() {
             return Math.ceil(this.json.length / 10);
         },
 	},
+<<<<<<< Updated upstream
 	methods: {
 		suppr: function(index){
 		  this.json.splice(index,1)
@@ -117,6 +142,30 @@ export default {
     },
 	mounted() {
         this.bindEvents()
+=======
+    components: {
+      	Row: Row,
+      	Create: Create,
+        Navigation: Navigation,
+        Delete: Delete
+	},
+	methods: {
+    pageChanged: function(index) {
+        if (index < 1) this.pageNumber = 1;
+        else if (index > this.maxSize - 1) this.pageNumber = this.maxSize;
+        else this.pageNumber = index;
+	  },
+    suppr: function(index){
+      this.json.splice(index,1)
+    },
+    checkAll: function(){
+      var checkbox = Array.prototype.slice.call(document.getElementsByClassName('inputs'));
+      console.log(checkbox);
+      for(var i=0; checkbox[i]; ++i) {
+        document.getElementById('check').checked ? checkbox[i].checked = true : checkbox[i].checked = false;
+      }
+    }
+>>>>>>> Stashed changes
 	}
 }
 </script>

@@ -1,6 +1,7 @@
 <template>
     <tr>
-        <td>{{ row.id}}</td>
+      <td><input class="inputs" type="checkbox" :id="'check' + row.id" ></td>
+      <td>{{ row.id}}</td>
         <EditRow
             name="first_name"
             :value="row.first_name"
@@ -40,7 +41,7 @@ export default {
         'row',
         'json',
         'suppr',
-        'index'
+        'index',
     ],
     methods: {
         onSubmit: function(name, value, row) {
