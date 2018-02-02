@@ -4,7 +4,7 @@
             <span v-if="isOrdered && ordering.isDesc"><i class="fa fa-angle-down"></i></span>
             <span v-if="isOrdered && !ordering.isDesc"><i class="fa fa-angle-up"></i></span>
         </label><br>
-        <input v-on:click.stop v-on:change="search()" v-model="value">
+        <input v-on:click.stop v-on:keyup="search()" v-model="value">
     </th>
 </template>
 

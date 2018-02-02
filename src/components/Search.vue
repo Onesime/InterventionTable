@@ -3,10 +3,9 @@
         <div class="form-group">
             <label for="search-input" class="col-2 col-form-label">Search</label>
             <div class="col-10">
-                <input class="form-control" type="search" v-model="value" id="search-input">
+                <input class="form-control" type="search" v-model="value" id="search-input" v-on:keyup="doCallback">
             </div>
         </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
     </form>
 </template>
 
