@@ -1,9 +1,10 @@
 <template>
 	<div class="interventiontable">
-    <Delete
-      :json="json"
-      style="text-align: left;">
-    </Delete>
+		<Delete
+		  :json="json"
+		  style="text-align: left;">
+		</Delete>
+		<Search></Search>
 		<div class="table-responsive">
 			<table class="table table-bordered table-hover">
 				<thead>
@@ -64,6 +65,7 @@ import Navigation from './Navigation.vue'
 import THOrdering from './THOrdering.vue'
 import Delete from './Delete.vue'
 import ModalEdit from './ModalEdit.vue'
+import Search from './Search.vue'
 
 export default {
   	name: 'InterventionTable',
@@ -73,7 +75,8 @@ export default {
         Navigation: Navigation,
         THOrdering: THOrdering,
         ModalEdit: ModalEdit,
-        Delete: Delete
+        Delete: Delete,
+		Search: Search
     },
     mounted() {
         this.bindEvents()
@@ -86,7 +89,8 @@ export default {
                 field: 'id',
 				isDesc: true,
 			},
-			selectedRow: json[0]
+			selectedRow: json[0],
+			globalSearchValue: ''
         }
     },
 	props: [
@@ -98,22 +102,45 @@ export default {
         },
       	sortedJson: function() {
 
-			var me = this;
+            var me = this;
+
+            function globalSearch(obj) {
+
+                if ((obj.id + '').indexOf(me.globalSearchValue) != -1) return true;
+                if ((obj.last_name + '').indexOf(me.globalSearchValue) != -1) return true;
+                if ((obj.first_name + '').indexOf(me.globalSearchValue) != -1) return true;
+                if ((obj.email + '').indexOf(me.globalSearchValue) != -1) return true;
+                if ((obj.title + '').indexOf(me.globalSearchValue) != -1) return true;
+                if ((obj.place + '').indexOf(me.globalSearchValue) != -1) return true;
+                if ((obj.description + '').indexOf(me.globalSearchValue) != -1) return true;
+                return false;
+			}
+
+            var found = [];
+			if (this.globalSearchValue.length != 0) {
+                found = this.json.filter(globalSearch);
+			} else {
+                found = this.json;
+			}
+
+			if (found == undefined) found = this.json;
+			else if (found.length == undefined) found = this.json;
+
             function compare(a, b) {
                 if (a[me.ordering.field] < b[me.ordering.field]) return -1;
                 if (a[me.ordering.field] > b[me.ordering.field]) return 1;
                 return 0;
             }
 
-            this.json.sort(compare)
-            if (this.ordering.isDesc == true) return this.json;
-            return this.json.reverse();
+            found.sort(compare)
+            if (this.ordering.isDesc == true) return found;
+            return found.reverse();
 		},
       	paginatedJson: function() {
           	return this.sortedJson.slice((this.pageNumber -1) * 10, (this.pageNumber - 1) * 10 + 10);
 	  	},
         maxSize: function() {
-            return Math.ceil(this.json.length / 10);
+            return Math.ceil(this.paginatedJson.length / 10);
         },
 	},
 	methods: {
@@ -144,6 +171,9 @@ export default {
                 this.json[index].title = obj.row.title;
                 this.json[index].place = obj.row.place;
                 this.json[index].description = obj.row.description;
+            })
+            this.$on('globalSearch', (value) => {
+                this.globalSearchValue = value
             })
         },
         checkAll: function(){
