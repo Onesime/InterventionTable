@@ -3,7 +3,8 @@
         <label>{{ name }}
             <span v-if="isOrdered && ordering.isDesc"><i class="fa fa-angle-down"></i></span>
             <span v-if="isOrdered && !ordering.isDesc"><i class="fa fa-angle-up"></i></span>
-        </label>
+        </label><br>
+        <input v-on:click.stop v-on:change="search()" v-model="value">
     </th>
 </template>
 
@@ -19,6 +20,7 @@
         data() {
             return {
                 isDown: false,
+                value: ''
             }
         },
         computed: {
@@ -39,7 +41,10 @@
                 this.isDown = !this.isDown;
                 //console.log(this.isDown);
                 this.$parent.$emit('orderChanged', { field: this.field, isDesc: this.isDown })
-            }
+            },
+          search: function(){
+              this.$parent.$emit('searching', { field : this.field, value : this.value})
+          }
         }
     }
 

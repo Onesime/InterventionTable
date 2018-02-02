@@ -89,6 +89,10 @@ export default {
                 field: 'id',
 				isDesc: true,
 			},
+        searching: {
+              field: '',
+              value: ''
+        },
 			selectedRow: json[0],
 			globalSearchValue: ''
         }
@@ -103,9 +107,7 @@ export default {
       	sortedJson: function() {
 
             var me = this;
-
             function globalSearch(obj) {
-
                 if ((obj.id + '').indexOf(me.globalSearchValue) != -1) return true;
                 if ((obj.last_name + '').indexOf(me.globalSearchValue) != -1) return true;
                 if ((obj.first_name + '').indexOf(me.globalSearchValue) != -1) return true;
@@ -114,28 +116,35 @@ export default {
                 if ((obj.place + '').indexOf(me.globalSearchValue) != -1) return true;
                 if ((obj.description + '').indexOf(me.globalSearchValue) != -1) return true;
                 return false;
-			}
-
-            var found = [];
-			if (this.globalSearchValue.length != 0) {
-                found = this.json.filter(globalSearch);
-			} else {
-                found = this.json;
-			}
-
-			if (found == undefined) found = this.json;
-			else if (found.length == undefined) found = this.json;
-
-            function compare(a, b) {
-                if (a[me.ordering.field] < b[me.ordering.field]) return -1;
-                if (a[me.ordering.field] > b[me.ordering.field]) return 1;
-                return 0;
             }
 
+            var found = [];
+            if (this.globalSearchValue.length != 0) {
+                found = this.json.filter(globalSearch);
+            } else {
+                found = this.json;
+            }
+
+            if (found == undefined) found = this.json;
+            else if (found.length == undefined) found = this.json;
+
+                  function compare(a, b) {
+                      if (a[me.ordering.field] < b[me.ordering.field]) return -1;
+                      if (a[me.ordering.field] > b[me.ordering.field]) return 1;
+                      return 0;
+                  }
+
+                  function search(a){
+                    return (a[me.searching.field] + '').indexOf(me.searching.value) != -1;
+                  }
+
+            if (this.searching.value.length != 0) {
+              found = found.filter(search);
+            }
             found.sort(compare)
             if (this.ordering.isDesc == true) return found;
             return found.reverse();
-		},
+		    },
       	paginatedJson: function() {
           	return this.sortedJson.slice((this.pageNumber -1) * 10, (this.pageNumber - 1) * 10 + 10);
 	  	},
@@ -174,6 +183,10 @@ export default {
             })
             this.$on('globalSearch', (value) => {
                 this.globalSearchValue = value
+            })
+            this.$on('searching', (obj) => {
+              this.searching.field = obj.field
+              this.searching.value = obj.value
             })
         },
         checkAll: function(){
