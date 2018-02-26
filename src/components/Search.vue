@@ -1,5 +1,6 @@
 <template>
-    <form class="form-inline" v-on:submit="doCallback">
+  <div>
+    <form style="float:left;" class="form-inline" v-on:submit="doCa-llback">
         <div class="form-group">
             <label for="search-input" class="col-2 col-form-label">Search</label>
             <div class="col-10">
@@ -7,6 +8,7 @@
             </div>
         </div>
     </form>
+  </div>
 </template>
 
 <script>

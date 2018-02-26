@@ -1,10 +1,10 @@
 <template>
 	<div class="interventiontable">
-		<Delete
-		  :json="json"
-		  style="text-align: left;">
-		</Delete>
 		<Search></Search>
+    <Delete
+      :json="json"
+      class="delete">
+    </Delete>
 		<div class="table-responsive">
 			<table class="table table-bordered table-hover">
 				<thead>
@@ -76,7 +76,8 @@ export default {
         THOrdering: THOrdering,
         ModalEdit: ModalEdit,
         Delete: Delete,
-		Search: Search
+        Search: Search,
+
     },
     mounted() {
         this.bindEvents()
