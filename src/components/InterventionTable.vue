@@ -10,7 +10,7 @@
 			<table class="table table-bordered table-hover">
 				<thead>
 					<tr>
-						<th><input type="checkbox" id="check" v-on:click="checkAll()"></th>
+						<th class="checkbox"><input type="checkbox" id="check" v-on:click="checkAll()"></th>
 						<THOrdering name="ID"
 									field="id"
 									:ordering="ordering"
@@ -35,7 +35,7 @@
 									field="place"
 									:ordering="ordering"
 						></THOrdering>
-            			<th>Action</th>
+            			<th class="buttons">Action</th>
 					</tr>
 				</thead>
 				<tbody>
