@@ -1,10 +1,11 @@
 <template>
 	<div class="interventiontable">
+		<h1>Intervention table</h1>
 		<Search></Search>
-    <Delete
-      :json="json"
-      class="delete">
-    </Delete>
+		<Delete
+		  :json="json"
+		  class="delete">
+		</Delete>
 		<div class="table-responsive">
 			<table class="table table-bordered table-hover">
 				<thead>
