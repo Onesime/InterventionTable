@@ -149,12 +149,20 @@ export default {
             return found.reverse();
 		    },
       	paginatedJson: function() {
-          	return this.sortedJson.slice((this.pageNumber -1) * 10, (this.pageNumber - 1) * 10 + 10);
+            var number = 10;
+            if(screen.width <= 480){
+              number = 5;
+            }
+          	return this.sortedJson.slice((this.pageNumber -1) * number, (this.pageNumber - 1) * number + number);
 	  	},
         maxSize: function() {
-            return Math.ceil(this.sortedJson.length / 10);
+          var number = 10;
+          if(screen.width <= 480){
+            number = 5;
+          }
+          return Math.ceil(this.sortedJson.length / number);
         },
-	},
+},
 	methods: {
 		suppr: function(index){
 		  this.json.splice(index,1)
