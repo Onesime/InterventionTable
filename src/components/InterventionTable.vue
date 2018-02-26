@@ -164,11 +164,7 @@ export default {
 	  	},
         bindEvents() {
             this.$on('orderChanged', (obj) => {
-                console.log("orderChanged")
-                console.log(obj)
                 this.ordering = obj
-                //this.ordering.isDesc = obj.isDesc;
-
             })
             this.$on('selectedRowChanged', (obj) => {
                 this.selectedRow = Object.assign({}, obj.row);
@@ -195,7 +191,6 @@ export default {
         },
         checkAll: function(){
             var checkbox = Array.prototype.slice.call(document.getElementsByClassName('inputs'));
-            console.log(checkbox);
             for(var i=0; checkbox[i]; ++i) {
                 document.getElementById('check').checked ? checkbox[i].checked = true : checkbox[i].checked = false;
             }
