@@ -1,31 +1,16 @@
 @media screen and (max-width: 320px) {
-  .interventiontable h1 {
-      font-size: 20px;
-  }
+
   .interventiontable{
     margin: 1px;
   }
-  .form-control{
-    width: 80px;
-  }
-  .delete{
-    float:right;
-    margin-right:10px;
+  .interventiontable h1{
+    margin: 7px;
   }
   html, body, .interventiontable{
     width: 100%;
     margin:0;
     padding:0;
   }
-  .interventiontable .form-group{
-    width:200px
-  }
-  .interventiontable label{
-    float:left;
-  }
-  .interventiontable input{
-     float:right;
-   }
   th, td {
     padding: 0;
   }
@@ -41,8 +26,59 @@
   th.place, td.place {
     display:none;
   }
-  td.buttons, td.buttons {
-    margin: 0px;
-    padding: 0px;
+  .navigation .page-link {
+    padding: .5rem .40rem;
+  }
+  th.checkbox, td.checkbox {
+    width: 5%;
+    min-width: 5%;
+    padding: 1%;
+  }
+  th.buttons, td.buttons {
+    width: 5%;
+    min-width: 5%;
+    padding: 1%;
+  }
+
+
+
+
+
+  form.search_group {
+    width: 100%;
+  }
+
+  div.search {
+    width: 75%;
+  }
+
+  div.search label {
+    width: 25%;
+    padding: 0;
+    margin: 0;
+    display: inline-block;
+  }
+
+  div.search div {
+    width: 70%;
+    margin: 0;
+    padding: 0;
+    display: inline-block;
+  }
+
+  div.search div input {
+    width: 70%;
+    padding: 0;
+    margin: 0;
+    margin-left: 10%;
+  }
+
+  div.delete {
+    width: 25%;
+  }
+
+  div.delete input{
+    width: 100%;
+    margin: 0;
   }
 }

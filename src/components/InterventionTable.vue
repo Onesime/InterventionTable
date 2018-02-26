@@ -112,12 +112,12 @@ export default {
             var me = this;
             function globalSearch(obj) {
                 if ((obj.id + '').indexOf(me.globalSearchValue) != -1) return true;
-                if ((obj.last_name + '').indexOf(me.globalSearchValue) != -1) return true;
-                if ((obj.first_name + '').indexOf(me.globalSearchValue) != -1) return true;
-                if ((obj.email + '').indexOf(me.globalSearchValue) != -1) return true;
-                if ((obj.title + '').indexOf(me.globalSearchValue) != -1) return true;
-                if ((obj.place + '').indexOf(me.globalSearchValue) != -1) return true;
-                if ((obj.description + '').indexOf(me.globalSearchValue) != -1) return true;
+                if ((obj.last_name.toLowerCase() + '').indexOf(me.globalSearchValue.toLowerCase()) != -1) return true;
+                if ((obj.first_name.toLowerCase() + '').indexOf(me.globalSearchValue.toLowerCase()) != -1) return true;
+                if ((obj.email.toLowerCase() + '').indexOf(me.globalSearchValue.toLowerCase()) != -1) return true;
+                if ((obj.title.toLowerCase() + '').indexOf(me.globalSearchValue.toLowerCase()) != -1) return true;
+                if ((obj.place.toLowerCase() + '').indexOf(me.globalSearchValue.toLowerCase()) != -1) return true;
+                if ((obj.description.toLowerCase() + '').indexOf(me.globalSearchValue.toLowerCase()) != -1) return true;
                 return false;
             }
 
@@ -138,7 +138,7 @@ export default {
                   }
 
                   function search(a){
-                    return (a[me.searching.field] + '').indexOf(me.searching.value) != -1;
+                    return (a[me.searching.field].toLowerCase() + '').indexOf(me.searching.value.toLowerCase()) != -1;
                   }
 
             if (this.searching.value.length != 0) {
