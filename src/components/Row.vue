@@ -1,7 +1,7 @@
 <template>
     <tr>
-      <td><input class="inputs" type="checkbox" :id="'check' + row.id" ></td>
-      <td>{{ row.id}}</td>
+      <td class="checkbox"><input class="inputs" type="checkbox" :id="'check' + row.id" ></td>
+      <td class="id">{{ row.id}}</td>
         <EditRow
             name="first_name"
             :value="row.first_name"
@@ -27,7 +27,7 @@
                 :value="row.place"
                 :row="row"
                 :onSubmit="onSubmit"></EditRow>
-      <td>
+      <td class="buttons">
           <input type="button" class="btn btn-default" value="X" v-on:click="suppr(index)"/>
           <button v-on:click="selectedRowChanged" type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#myModal">
               <i class="far fa-edit"></i>

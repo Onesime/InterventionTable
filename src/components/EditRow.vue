@@ -1,5 +1,5 @@
 <template>
-    <td>
+    <td :class="name">
         <div v-show="!isEditing" v-on:dblclick="onDblClick()"><label>{{ value }}</label></div>
         <input v-show="isEditing"
                v-model="value"

@@ -1,5 +1,5 @@
 <template>
-    <th class="thordering" v-on:click="doCallback()">
+    <th :class="'thordering ' + field" v-on:click="doCallback()">
         <label>{{ name }}
             <span v-show="isOrdered && ordering.isDesc"><i class="fa fa-angle-down"></i></span>
             <span v-show="isOrdered && !ordering.isDesc"><i class="fa fa-angle-up"></i></span>
