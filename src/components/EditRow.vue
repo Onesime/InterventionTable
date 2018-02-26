@@ -5,7 +5,8 @@
                v-model="value"
                v-on:focusout="isDone()"
                v-on:keyup.enter="isDone()"
-               v-on:keyup.esc="isDone()">
+               v-on:keyup.esc="isDone()"
+               :ref="'input'">
     </td>
 </template>
 
@@ -22,8 +23,11 @@ export default {
         }
     },
     methods: {
-        onDblClick: function() {
+        onDblClick: function(event) {
             this.isEditing = true;
+            setTimeout(() => {
+                this.$refs['input'].focus()
+            }, 0)
         },
         isDone: function() {
             this.isEditing = false;
