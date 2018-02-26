@@ -164,8 +164,11 @@ export default {
 	  	},
         bindEvents() {
             this.$on('orderChanged', (obj) => {
-                this.ordering.field = obj.field;
-                this.ordering.isDesc = obj.isDesc;
+                console.log("orderChanged")
+                console.log(obj)
+                this.ordering = obj
+                //this.ordering.isDesc = obj.isDesc;
+
             })
             this.$on('selectedRowChanged', (obj) => {
                 this.selectedRow = Object.assign({}, obj.row);
@@ -202,23 +205,5 @@ export default {
 </script>
 
 <style scoped>
-
-	.interventiontable {
-		margin-left: 15%;
-		width: 70%;
-	}
-
-	label {
-		display: inline-block;
-		width: 100%;
-		height: 100%;
-		padding: 0px;
-		margin: 0px;
-	}
-
-	th {
-		padding: 0px;
-		min-width: 100px;
-	}
 
 </style>

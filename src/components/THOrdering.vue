@@ -1,8 +1,8 @@
 <template>
-    <th v-on:click="doCallback()">
+    <th class="thordering" v-on:click="doCallback()">
         <label>{{ name }}
-            <span v-if="isOrdered && ordering.isDesc"><i class="fa fa-angle-down"></i></span>
-            <span v-if="isOrdered && !ordering.isDesc"><i class="fa fa-angle-up"></i></span>
+            <span v-show="isOrdered && ordering.isDesc"><i class="fa fa-angle-down"></i></span>
+            <span v-show="isOrdered && !ordering.isDesc"><i class="fa fa-angle-up"></i></span>
         </label><br>
         <input v-on:click.stop v-on:keyup="search()" v-model="value">
     </th>
@@ -15,7 +15,7 @@
         props: [
             'field',
             'name',
-            'ordering'
+            'ordering',
         ],
         data() {
             return {
@@ -37,9 +37,7 @@
         },
         methods: {
             doCallback: function() {
-                console.log("doCallback")
                 this.isDown = !this.isDown;
-                //console.log(this.isDown);
                 this.$parent.$emit('orderChanged', { field: this.field, isDesc: this.isDown })
             },
           search: function(){

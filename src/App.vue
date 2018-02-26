@@ -12,7 +12,7 @@ import InterventionTable from './components/InterventionTable'
 export default {
   name: 'App',
   components: {
-	  interventiontable:InterventionTable
+      InterventionTable: InterventionTable
   }
 }
 </script>
