@@ -28,7 +28,7 @@
         computed: {
             getBegin: function() {
                 var nbOfPage = 5;
-                if (screen.width > 320 && screen.width <= 480) {
+                if (screen.width <= 480) {
                     nbOfPage = 2;
                 }
                 var x = this.pageNumber - nbOfPage;
@@ -43,7 +43,7 @@
             getEnd: function() {
                 if (this.pageNumber >= this.maxSize) return 0;
                 var nbOfPage = 5 + 1;
-                if (screen.width > 320 && screen.width <= 480) {
+                if (screen.width <= 480) {
                     nbOfPage = 2 + 1;
                 }
 
