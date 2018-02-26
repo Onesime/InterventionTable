@@ -3,9 +3,46 @@
       font-size: 20px;
   }
   .interventiontable{
-    margin: 0px;
+    margin: 1px;
   }
   .form-control{
-    width: 100px;
+    width: 80px;
+  }
+  .delete{
+    float:right;
+    margin-right:10px;
+  }
+  html, body, .interventiontable{
+    width: 100%;
+    margin:0;
+    padding:0;
+  }
+  .interventiontable .form-group{
+    width:200px
+  }
+  .interventiontable label{
+    float:left;
+  }
+  .interventiontable input{
+     float:right;
+   }
+  th, td {
+    padding: 0;
+  }
+  th.id, td.id {
+    display:none;
+  }
+  th.email, td.email {
+    display:none;
+  }
+  th.first_name, td.first_name {
+    display:none;
+  }
+  th.place, td.place {
+    display:none;
+  }
+  td.buttons, td.buttons {
+    margin: 0px;
+    padding: 0px;
   }
 }
