@@ -6,94 +6,40 @@
         width: 98%;
     }
 
-    th, td {
-        padding: 0;
-    }
-
-    th.checkbox, td.checkbox {
-        width: 5%;
-        min-width: 5%;
-        padding: 1%;
-    }
-
     th.id, td.id {
         display: none;
-    }
-
-    th.first_name, td.first_name {
-        width: 20%;
-        min-width: 20%;
-    }
-
-    th.last_name, td.last_name {
-        width: 15%;
-        min-width: 15%;
     }
 
     th.email, td.email {
         display: none;
     }
 
-    th.title, td.title {
-        width: 20%;
-        min-width: 20%;
-    }
-
-    th.buttons, td.buttons {
-        width: 5%;
-        min-width: 5%;
-        padding: 1%;
-    }
-
     th.place, td.place {
         display: none;
     }
 
-    form.search_group {
-        width: 100%;
+    .navigation .page-link {
+         padding: .5rem .60rem;
     }
 
     div.search {
-        width: 75%;
+        margin-bottom: 0px;
     }
 
     div.search label {
-        width: 25%;
-        padding: 0;
-        margin: 0;
         display: inline-block;
+        width: 40%;
     }
 
     div.search div {
-        width: 70%;
-        margin: 0;
-        padding: 0;
+        width: 50%;
+        flex: 0 0 30%;
+        margin-left: 5%;
         display: inline-block;
     }
 
-    div.search div input {
-        width: 100%;
-        padding: 0;
-        margin: 0;
-    }
-
     div.delete {
-        width: 25%;
-    }
-
-    div.delete input{
-        width: 100%;
-        margin: 0;
-    }
-
-
-    .navigation {
-        width: 100%;
-        max-width: 100%;
-    }
-
-    .navigation .page-link {
-         padding: .5rem .60rem;
+        float: left;
     }
 
 }

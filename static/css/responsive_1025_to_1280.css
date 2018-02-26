@@ -1,0 +1,25 @@
+
+@media only screen and (min-device-width: 1025px) and (max-device-width: 1280px) {
+    /* Styles */
+    .interventiontable {
+        margin-left: 1%;
+        width: 98%;
+    }
+
+    th.checkbox, td.checkbox {
+        width: 5%;
+        min-width: 5%;
+        padding: 1%;
+    }
+
+    th.id, td.id {
+        display: none;
+    }
+
+    .navigation .page-link {
+        padding: .5rem .60rem;
+    }
+
+}
+
+

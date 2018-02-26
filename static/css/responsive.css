@@ -1,3 +1,6 @@
+
+/* Styles */
+
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -5,18 +8,32 @@
   text-align: center;
   color: #2c3e50;
 }
-.delete {
-    text-align: left;
-    margin-bottom: 25px;
-}
-
-th.thordering input{
-    width: 100%;
-}
 
 .interventiontable {
     margin-left: 10%;
     width: 80%;
+}
+
+.interventiontable h1 {
+    margin: 50px;
+}
+
+.search_group {
+    margin-bottom: 25px;
+}
+
+.delete {
+    text-align: left;
+    margin-bottom: 0px;
+}
+
+th.thordering {
+    padding: 0px;
+    min-width: 100px;
+}
+
+th.thordering input{
+    width: 100%;
 }
 
 th.thordering label {
@@ -27,11 +44,58 @@ th.thordering label {
     margin: 0px;
 }
 
-th.thordering {
-    padding: 0px;
-    min-width: 100px;
+th, td {
+    padding: 0;
 }
 
 .interventiontable h1 {
     margin: 50px;
 }
+
+th.checkbox, td.checkbox {
+    width: 5%;
+    min-width: 5%;
+    padding: 1%;
+}
+
+th.id, td.id {
+    width: 5%;
+    min-width: 5%;
+}
+
+th.first_name, td.first_name {
+    width: 20%;
+    min-width: 20%;
+}
+
+th.last_name, td.last_name {
+    width: 15%;
+    min-width: 15%;
+}
+
+th.email, td.email {
+    width: 25%;
+    min-width: 25%;
+}
+
+th.title, td.title {
+    width: 20%;
+    min-width: 20%;
+}
+
+th.place, td.place {
+    width: 10%;
+    min-width: 10%;
+}
+
+th.buttons, td.buttons {
+    width: 5%;
+    min-width: 5%;
+    padding: 1%;
+}
+
+.navigation {
+    width: 100%;
+    max-width: 100%;
+}
+
