@@ -21,8 +21,7 @@
     }
 
     th.first_name, td.first_name {
-        width: 20%;
-        min-width: 20%;
+        display: none;
     }
 
     th.last_name, td.last_name {
@@ -72,9 +71,10 @@
     }
 
     div.search div input {
-        width: 100%;
+        width: 70%;
         padding: 0;
         margin: 0;
+        margin-left: 10%;
     }
 
     div.delete {
@@ -93,7 +93,7 @@
     }
 
     .navigation .page-link {
-         padding: .5rem .60rem;
+        padding: .5rem .60rem;
     }
 
 }

@@ -17,8 +17,7 @@
     }
 
     th.id, td.id {
-        width: 5%;
-        min-width: 5%;
+        display: none;
     }
 
     th.first_name, td.first_name {
@@ -32,8 +31,7 @@
     }
 
     th.email, td.email {
-        width: 30%;
-        min-width: 30%;
+        display: none;
     }
 
     th.title, td.title {
@@ -49,6 +47,53 @@
 
     th.place, td.place {
         display: none;
+    }
+
+    form.search_group {
+        width: 100%;
+    }
+
+    div.search {
+        width: 75%;
+    }
+
+    div.search label {
+        width: 25%;
+        padding: 0;
+        margin: 0;
+        display: inline-block;
+    }
+
+    div.search div {
+        width: 70%;
+        margin: 0;
+        padding: 0;
+        display: inline-block;
+    }
+
+    div.search div input {
+        width: 100%;
+        padding: 0;
+        margin: 0;
+    }
+
+    div.delete {
+        width: 25%;
+    }
+
+    div.delete input{
+        width: 100%;
+        margin: 0;
+    }
+
+
+    .navigation {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .navigation .page-link {
+         padding: .5rem .60rem;
     }
 
 }

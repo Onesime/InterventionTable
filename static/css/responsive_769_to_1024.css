@@ -1,0 +1,56 @@
+
+@media only screen and (min-device-width: 769px) and (max-device-width: 1024px) {
+    /* Styles */
+    .interventiontable {
+        margin-left: 1%;
+        width: 98%;
+    }
+
+    th, td {
+        padding: 0;
+    }
+
+    th.checkbox, td.checkbox {
+        width: 5%;
+        min-width: 5%;
+        padding: 1%;
+    }
+
+    th.id, td.id {
+        width: 5%;
+        min-width: 5%;
+    }
+
+    th.first_name, td.first_name {
+        width: 20%;
+        min-width: 20%;
+    }
+
+    th.last_name, td.last_name {
+        width: 15%;
+        min-width: 15%;
+    }
+
+    th.email, td.email {
+        width: 30%;
+        min-width: 30%;
+    }
+
+    th.title, td.title {
+        width: 20%;
+        min-width: 20%;
+    }
+
+    th.buttons, td.buttons {
+        width: 5%;
+        min-width: 5%;
+        padding: 1%;
+    }
+
+    th.place, td.place {
+        display: none;
+    }
+
+}
+
+
