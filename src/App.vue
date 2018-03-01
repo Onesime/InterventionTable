@@ -13,6 +13,8 @@ export default {
   name: 'App',
   components: {
       InterventionTable: InterventionTable
-  }
+  },
 }
 </script>
+
+

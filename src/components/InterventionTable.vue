@@ -138,7 +138,7 @@ export default {
                   }
 
                   function search(a){
-                    return (a[me.searching.field].toLowerCase() + '').indexOf(me.searching.value.toLowerCase()) != -1;
+                    return ((a[me.searching.field] + '').toLowerCase() + '').indexOf(me.searching.value.toLowerCase()) != -1;
                   }
 
             if (this.searching.value.length != 0) {
